@@ -41,8 +41,8 @@ class TasksService {
   }
   async deleteTask(id) {
     try {
-      const data = await db.removeOne(COLLECTION, { _id: ObjectId(id) })
-      return data
+      await db.removeOne(COLLECTION, { _id: ObjectId(id) })
+      return id
     } catch (err) {
       throw new Error(err)
     }

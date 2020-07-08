@@ -14,6 +14,8 @@ const {
 
 const tasksRouter = require('./routes/tasks')
 
+app.use(express.json())
+
 tasksRouter(app)
 
 //Error Middlewares

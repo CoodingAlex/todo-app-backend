@@ -28,7 +28,12 @@ function tasksRouter(app) {
 
   router.post('/tasks', async (req, res, next) => {
     try {
-      const task = req.body
+      const { title, description } = req.body
+      const task = {
+        title,
+        description,
+        completed: false,
+      }
       const data = await tasksService.createTask(task)
       res.status(201).json({ message: 'task created', data })
     } catch (err) {
